@@ -1,0 +1,11 @@
+SELECT COUNT(*) as filmSayısı FROM film WHERE length > (SELECT (AVG(length)) FROM film)
+
+select count(*) from film Adet 
+where rental_rate = ( SELECT MAX(rental_rate) from film)
+
+SELECT * FROM film WHERE rental_rate = (SELECT MIN(rental_rate) from film)
+and replacement_cost = (SELECT MIN(replacement_cost) from film)
+
+SELECT  customer_id, count(customer_id) FROM payment
+group by customer_id
+order by count(customer_id) DESC;
